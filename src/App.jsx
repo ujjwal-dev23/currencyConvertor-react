@@ -21,7 +21,11 @@ function App() {
   };
 
   return (
-    <div className="w-full h-screen flex flex-wrap justify-center items-center bg-[#191970]">
+    <div className="w-full h-screen flex flex-col justify-center items-center bg-[#191970]">
+      <div className="text-white flex flex-wrap text-5xl mb-15 text-center">
+        <h1>Currency Converter</h1>&nbsp;
+        <h1 className="text-blue-500">React</h1>
+      </div>
       <div className="flex flex-col justify-center items-center mx-auto border border-gray-600/30 shadow-lg rounded-lg p-5 bg-[#4b3abb]/20">
         <form
           onSubmit={(e) => {
@@ -38,9 +42,24 @@ function App() {
             onAmountChange={(newAmount) => setAmount(newAmount)}
           />
         </form>
-        <div className="bg-[#4b3abb] rounded-lg px-3 py-0.5 text-white -my-3 md:text-lg border-[#4b3abb]/10 hover:border-[#0080FF] border-2 hover:shadow-lg">
-          Test
+        <div className="bg-blue-500 rounded-lg px-3 py-0.5 text-white -my-3 md:text-lg border-blue-500 hover:border-[#4b3abb] border-2 shadow-lg z-1">
+          <button onClick={swapCurrencies}>Swap</button>
         </div>
+        <InputBox
+          label="To"
+          currencyOptions={currencyOptions}
+          amountDisabled
+          amount={convertedAmount.toFixed(2)}
+          selectedCurrency={to}
+          onCurrencyChange={(currency) => setTo(currency)}
+          onAmountChange={(amount) => setAmount(amount)}
+        />
+        <button
+          className="w-full bg-blue-500 text-white rounded-lg mt-3 p-1.5 border-2 border-blue-500 hover:border-white"
+          onClick={convertCurrency}
+        >
+          Convert {from.toUpperCase()} To {to.toUpperCase()}
+        </button>
       </div>
     </div>
   );

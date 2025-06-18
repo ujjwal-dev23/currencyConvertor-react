@@ -13,7 +13,7 @@ function InputBox({
   const id = useId();
   return (
     <div
-      className={`bg-[#6A5ACD] px-4 pt-2 pb-5 rounded-lg text-sm md:text-lg flex ${className}`}
+      className={`bg-[#6A5ACD] w-full px-4 pt-2 pb-5 rounded-lg text-sm md:text-lg flex ${className}`}
     >
       <div className="w-1/2">
         <label htmlFor={id} className="inline-block mb-2 text-white">
